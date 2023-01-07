@@ -1,0 +1,62 @@
+﻿<Window x:Class="WpfApp3_pd.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3_pd"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+
+    <DockPanel>
+
+        <DockPanel DockPanel.Dock="Bottom" Margin="0 0 0 40">
+
+            <StackPanel x:Name="spRadioButtons" Orientation="Horizontal" HorizontalAlignment="Center" DockPanel.Dock="Top">
+                <RadioButton Content="1" GroupName="rating" Margin="50,10" Checked="RadioButton_Checked"/>
+                <RadioButton Content="2" GroupName="rating" Margin="50,10" Checked="RadioButton_Checked"/>
+                <RadioButton Content="3" GroupName="rating" Margin="50,10" Checked="RadioButton_Checked"/>
+                <RadioButton Content="4" GroupName="rating" Margin="50,10" Checked="RadioButton_Checked"/>
+                <RadioButton Content="5" GroupName="rating" Margin="50,10" Checked="RadioButton_Checked"/>
+            </StackPanel>
+
+            <Button x:Name="Prev" DockPanel.Dock="Left" Content="Prev" Width="100" Margin="20 0" Click="Prev_Click"/>
+            <Button x:Name="Next" DockPanel.Dock="Right" Content="Next" Width="100" Margin="20 0" Click="Next_Click"/>
+            <Slider x:Name="sldPicture" Orientation="Horizontal" TickPlacement="TopLeft" IsSnapToTickEnabled="True" ValueChanged="sldPicture_ValueChanged"/>
+            
+        </DockPanel>
+
+        <DockPanel>
+            <ListBox x:Name="lbFolder" DockPanel.Dock="Left" Width="140" SelectionChanged="lbFolder_SelectionChanged"/>
+            
+            <StackPanel DockPanel.Dock="Right" Width="140">
+                <Expander Header="Свойства" Margin="10">
+                    <StackPanel>
+                        <Label Content="Размер"/>
+                        <Label x:Name="sizeKB" Content="" Margin="0 10 0 20"/>
+                        <Label Content="Разрешение"/>
+                        <Label x:Name="resolution" Content="" Margin="0 10 0 20"/>
+                    </StackPanel>
+                </Expander>
+                
+                <Expander Header="Фильтр" Margin="10">
+                    <StackPanel>
+                        <Label Content="По оценке"/>
+                        <ComboBox SelectionChanged="ComboBox_SelectionChanged" >
+                            <ComboBoxItem x:Name="Default" Content="Не выбрано"/>
+                            <ComboBoxItem Content="1"/>
+                            <ComboBoxItem Content="2"/>
+                            <ComboBoxItem Content="3"/>
+                            <ComboBoxItem Content="4"/>
+                            <ComboBoxItem Content="5"/>
+                        </ComboBox>
+                    </StackPanel>
+                </Expander>
+                
+            </StackPanel>
+
+            <Image x:Name="imgMain" Margin="5" Stretch="Uniform"/>
+            
+        </DockPanel>
+    </DockPanel>
+
+</Window>
